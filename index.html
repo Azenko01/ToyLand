@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToyLand - Magical Toys for Every Child</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="spinning-toy">🧸</div>
+            <div class="loading-text">Loading magical toys...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🧸 ToyLand</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#categories" class="nav-link">Categories</a>
+                <a href="#featured" class="nav-link">Featured</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            
+            <!-- Mobile Burger Menu -->
+            <div class="burger-menu" id="burgerMenu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="search-btn" onclick="toggleSearch()">🔍</button>
+                <button class="wishlist-btn-header" onclick="toggleWishlist()">
+                    ❤️ <span class="wishlist-count" id="wishlistCount">0</span>
+                </button>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Search Bar -->
+        <div class="search-container" id="searchContainer">
+            <input type="text" class="search-input" placeholder="Search for toys..." id="searchInput">
+            <button class="search-submit" onclick="searchToys()">Search</button>
+            <button class="clear-search" onclick="clearSearch()">Clear</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Magical Toys for Every Child</h1>
+                <p class="hero-subtitle">Discover amazing toys that spark imagination and bring joy to children of all ages</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Happy Kids</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Quality Toys</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="scrollToSection('categories')">
+                    <span>Explore Toys</span>
+                    <div class="button-sparkle">✨</div>
+                </button>
+            </div>
+            <div class="hero-mascot">
+                <div class="mascot-container">
+                    <div class="mascot" onclick="interactWithMascot()">🧸</div>
+                    <div class="mascot-speech" id="mascotSpeech">Welcome to ToyLand!</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enhanced Floating Toys -->
+        <div class="floating-toys">
+            <div class="floating-toy toy-1">🚗</div>
+            <div class="floating-toy toy-2">🎈</div>
+            <div class="floating-toy toy-3">⚽</div>
+            <div class="floating-toy toy-4">🪀</div>
+            <div class="floating-toy toy-5">🎯</div>
+            <div class="floating-toy toy-6">🎨</div>
+        </div>
+        
+        <!-- Animated Background Elements -->
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Toy Categories</h2>
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterByCategory('all')">All Toys</button>
+                <button class="filter-btn" onclick="filterByCategory('plush')">Plush</button>
+                <button class="filter-btn" onclick="filterByCategory('educational')">Educational</button>
+                <button class="filter-btn" onclick="filterByCategory('vehicles')">Vehicles</button>
+                <button class="filter-btn" onclick="filterByCategory('dolls')">Dolls</button>
+                <button class="filter-btn" onclick="filterByCategory('games')">Games</button>
+                <button class="filter-btn" onclick="filterByCategory('outdoor')">Outdoor</button>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('plush')" data-category="plush">
+                    <div class="category-icon">🧸</div>
+                    <h3>Plush Toys</h3>
+                    <p>Soft & cuddly friends</p>
+                    <div class="category-count">12 items</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('educational')" data-category="educational">
+                    <div class="category-icon">🧩</div>
+                    <h3>Educational</h3>
+                    <p>Learn while playing</p>
+                    <div class="category-count">8 items</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('vehicles')" data-category="vehicles">
+                    <div class="category-icon">🚗</div>
+                    <h3>Vehicles</h3>
+                    <p>Cars, trucks & more</p>
+                    <div class="category-count">15 items</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('dolls')" data-category="dolls">
+                    <div class="category-icon">👶</div>
+                    <h3>Dolls</h3>
+                    <p>Beautiful companions</p>
+                    <div class="category-count">10 items</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('games')" data-category="games">
+                    <div class="category-icon">🎲</div>
+                    <h3>Board Games</h3>
+                    <p>Family fun time</p>
+                    <div class="category-count">6 items</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('outdoor')" data-category="outdoor">
+                    <div class="category-icon">⚽</div>
+                    <h3>Outdoor</h3>
+                    <p>Active play toys</p>
+                    <div class="category-count">9 items</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Toys</h2>
+                <div class="sort-controls">
+                    <select id="sortSelect" onchange="sortProducts()">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreProducts()">
+                    Load More Toys
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">What Parents Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">👩</div>
+                        <div class="reviewer-info">
+                            <h4>Sarah Johnson</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Amazing quality toys! My daughter loves her new teddy bear. Fast shipping and excellent customer service."</p>
+                    <div class="review-date">2 days ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">👨</div>
+                        <div class="reviewer-info">
+                            <h4>Mike Chen</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The educational toys are fantastic! My son has learned so much while having fun. Highly recommend!"</p>
+                    <div class="review-date">1 week ago</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">👩</div>
+                        <div class="reviewer-info">
+                            <h4>Emma Davis</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best toy store ever! The 360° product viewer helped me choose the perfect gift. Kids absolutely love everything!"</p>
+                    <div class="review-date">2 weeks ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal with Enhanced 360° Viewer -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="product-details">
+                <div class="product-viewer">
+                    <div class="rotation-container" id="rotationContainer">
+                        <div class="product-360-viewer">
+                            <img class="product-image" id="modalProductImage" src="/placeholder.svg" alt="">
+                            <div class="rotation-indicator">
+                                <div class="rotation-circle">
+                                    <div class="rotation-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rotation-controls">
+                            <button class="rotate-btn" onclick="startAutoRotation()">🔄 Auto Rotate</button>
+                            <button class="rotate-btn" onclick="stopRotation()">⏸️ Stop</button>
+                            <button class="rotate-btn" onclick="resetRotation()">🔄 Reset</button>
+                        </div>
+                        <div class="drag-hint">
+                            <span>👆 Drag to rotate • 🖱️ Click and drag</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2 id="modalProductName"></h2>
+                    <div class="product-badges">
+                        <span class="badge new">New</span>
+                        <span class="badge bestseller">Bestseller</span>
+                    </div>
+                    <div class="product-rating">
+                        <span class="stars" id="modalProductStars"></span>
+                        <span class="rating-text" id="modalProductRating"></span>
+                        <span class="review-count" id="modalReviewCount"></span>
+                    </div>
+                    <p class="product-price" id="modalProductPrice"></p>
+                    <p class="product-description" id="modalProductDescription"></p>
+                    
+                    <div class="product-features">
+                        <h4>Features:</h4>
+                        <ul id="modalProductFeatures"></ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <span class="spec-label">Age Range:</span>
+                            <span class="spec-value" id="modalAgeRange"></span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Material:</span>
+                            <span class="spec-value" id="modalMaterial"></span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Safety:</span>
+                            <span class="spec-value">✅ Certified Safe</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button onclick="decreaseQuantity()">-</button>
+                            <span id="quantity">1</span>
+                            <button onclick="increaseQuantity()">+</button>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart()">
+                            <span>Add to Cart</span>
+                            <div class="btn-loading"></div>
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlistItem()" id="wishlistToggle">
+                            ❤️
+                        </button>
+                    </div>
+                    
+                    <!-- Product Reviews in Modal -->
+                    <div class="product-reviews">
+                        <h4>Customer Reviews</h4>
+                        <div class="reviews-summary">
+                            <div class="rating-breakdown">
+                                <div class="rating-bar">
+                                    <span>5★</span>
+                                    <div class="bar"><div class="fill" style="width: 70%"></div></div>
+                                    <span>70%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>4★</span>
+                                    <div class="bar"><div class="fill" style="width: 20%"></div></div>
+                                    <span>20%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>3★</span>
+                                    <div class="bar"><div class="fill" style="width: 8%"></div></div>
+                                    <span>8%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>2★</span>
+                                    <div class="bar"><div class="fill" style="width: 2%"></div></div>
+                                    <span>2%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>1★</span>
+                                    <div class="bar"><div class="fill" style="width: 0%"></div></div>
+                                    <span>0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-summary">
+            <div class="promo-code">
+                <input type="text" placeholder="Promo code" id="promoInput">
+                <button onclick="applyPromoCode()">Apply</button>
+            </div>
+            <div class="cart-totals">
+                <div class="subtotal">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="shipping">
+                    <span>Shipping:</span>
+                    <span id="cartShipping">Free</span>
+                </div>
+                <div class="total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <button class="checkout-btn" onclick="checkout()">
+                <span>Proceed to Checkout</span>
+                <span class="checkout-icon">🛒</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-sidebar" id="wishlistSidebar">
+        <div class="wishlist-header">
+            <h3>My Wishlist</h3>
+            <button class="close-wishlist" onclick="toggleWishlist()">&times;</button>
+        </div>
+        <div class="wishlist-items" id="wishlistItems">
+            <!-- Wishlist items will be loaded here -->
+        </div>
+        <div class="wishlist-footer">
+            <button class="clear-wishlist-btn" onclick="clearWishlist()">Clear All</button>
+        </div>
+    </div>
+
+    <!-- Floating Assistant -->
+    <div class="floating-assistant" id="floatingAssistant">
+        <div class="assistant-avatar" onclick="toggleAssistant()">
+            🤖
+        </div>
+        <div class="assistant-chat" id="assistantChat">
+            <div class="chat-header">
+                <span>Toy Helper</span>
+                <button onclick="toggleAssistant()">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <span>Hi! I'm here to help you find the perfect toy! 🧸</span>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Ask me about toys..." id="chatInput">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🧸 ToyLand</h4>
+                    <p>Bringing joy to children worldwide with quality toys and exceptional service since 2020.</p>
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <strong>1M+</strong>
+                            <span>Happy Customers</span>
+                        </div>
+                        <div class="footer-stat">
+                            <strong>50K+</strong>
+                            <span>Toys Sold</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#featured">Featured</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook">📘</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                        <a href="#" class="social-link twitter">🐦</a>
+                        <a href="#" class="social-link youtube">📺</a>
+                        <a href="#" class="social-link tiktok">🎵</a>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Newsletter</h5>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ToyLand. All rights reserved. Made with ❤️ for children everywhere.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ⬆️
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
